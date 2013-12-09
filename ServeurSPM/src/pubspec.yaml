@@ -1,0 +1,4 @@
+name: ServeurSPM
+description: Serveur pour le SPM
+dependencies:
+  unittest: any
