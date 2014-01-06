@@ -22,9 +22,4 @@ app.get('/backlog/:id', function(req, res) {
 });
  
 app.listen(3000);
-<<<<<<< HEAD
 console.log('Listeninger on port 3000...');
-=======
-console.log('Listeningeroooo on port 3000...');
-console.log('Listening on port 3000...');
->>>>>>> ed01a4ad7131c5f57114555a92fecfd46de3c67b
