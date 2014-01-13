@@ -1,14 +1,7 @@
 
-
-# spmServeur
-
-
-
 ## Usage
-
-
-
-## Developing
+Lancement serveur
+node serveur.js
 
 
 
