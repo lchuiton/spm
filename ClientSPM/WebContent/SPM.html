@@ -4,10 +4,24 @@
 <meta charset="ISO-8859-1">
 <title>SPM</title>
 <script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-resource.js"></script>
 <script src="app/StoriesCtrl.js"></script>
 <script src="src/EntrepotStories.js"></script>
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-	<ng-include src="'StoriesList.html'"/>
+	<div data-ng-controller="StoriesCtrl">
+		Recherche: <input ng-model="filtre">
+		Tri: <input ng-model="tri">
+		<ul class="container">
+			<li class="us" data-ng-repeat="story in stories | filter:filtre  | orderBy:tri">
+			  <span class="us-num">{{story.numero}}</span>
+			  <span class="us-theme">{{story.theme}}</span>
+			  <span class="us-needs">{{story.besoin}}</span>
+			  <span class="us-ac">{{story.criteres}}</span>
+			  <span class="us-value">{{story.estimation}}</span>
+			</li>
+		</ul>
+	</div>
 </body>
 </html>

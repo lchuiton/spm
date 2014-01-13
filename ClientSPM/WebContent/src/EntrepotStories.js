@@ -1,14 +1,9 @@
-angular.module('spm.persistance.entrepotStories', [])
-	.factory('entrepotStories', function(){
+angular.module('spm.persistance.entrepotStories', ['ngResource'])
+	.factory('entrepotStories', [ '$resource',  function($resource){
 		return {
 			recupererStories : function() {
-				return [{
-					'numero' : 10,
-					'theme' : 'un theme',
-					'besoin' : 'un besoin',
-					'criteres' : 'des criteres',
-					'estimation' : 3
-				  }];
+				var stories = $resource('http://localhost:3000/backlog/');
+				return stories.query();
 			}
 		};
-});
+}]);
