@@ -13,10 +13,13 @@ app.get('/backlog', function(req, res) {
 });
 
 // Modifie la priorité d'une US et "décale" la priorisation des autres US si besoin
-app.get('/backlog/:id/:idUsPrecedente', function() {
+app.post('/backlog/:id/position', function(position) {
 	rechercheSiUSExiste(req.params.id);
-
+	
 	var position = getUS(req.params.id).numeroPriorisation;
+	var numeroUsPrecedente = position.avant ;
+	var numeroUsSuivante = position.apres ;
+	
 
 });
 
