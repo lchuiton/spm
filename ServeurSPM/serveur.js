@@ -3,12 +3,46 @@ var express = require('express');
 var app = express();
 
 var backlog = [
-               {numeroUS:1, contenuUS:'ETQ Dev, je veux des US dans mon gui'},
-               {numeroUS:2, contenuUS:'ETQ Dev, je veux faire des tests sur NodeJS'}
+               {
+						"numero" : 2, 
+						"theme" : "un theme",
+						"besoin" : "un besoin",
+						"criteres" : "des criteres",
+						"estimation" : 10,
+						"ordre" : 1
+					},
+					{
+						"numero" : 1, 
+						"theme" : "un tgheme",
+						"besoin" : "un jbesoin",
+						"criteres" : "deghjs criteres",
+						"estimation" : 5,
+						"ordre" : 2
+					},
+					{
+						"numero" : 5, 
+						"theme" : "un tgheme",
+						"besoin" : "un jbesoin",
+						"criteres" : "deghjs criteres",
+						"estimation" : 8,
+						"ordre" : 3
+					},
+					{
+						"numero" : 13, 
+						"theme" : "un tgheme",
+						"besoin" : "un jbesoin",
+						"criteres" : "deghjs criteres",
+						"estimation" : 20,
+						"ordre" : 4
+					}
                ];
  
 app.get('/backlog', function(req, res) {
     res.json(backlog);
+});
+
+app.get('/test', function(req, res) {
+    res.json([{"nom":"vincent"}]);
 });
 
 app.get('/backlog/:id', function(req, res) {
@@ -22,4 +56,4 @@ app.get('/backlog/:id', function(req, res) {
 });
  
 app.listen(3000);
-console.log('Listeninger on port 3000...');
+console.log('Listening on port 3000...');
