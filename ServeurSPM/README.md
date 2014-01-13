@@ -1,14 +1,6 @@
-
-
-# spmServeur
-
-
-
 ## Usage
-
-
-
-## Developing
+### Lancement serveur par la console
+node serveur.js
 
 
 

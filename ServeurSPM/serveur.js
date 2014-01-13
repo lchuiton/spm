@@ -3,8 +3,39 @@ var express = require('express');
 var app = express();
 
 var backlog = [
-               {numeroUS:1, contenuUS:'ETQ Dev, je veux des US dans mon gui', numeroPriorisation:1},
-               {numeroUS:2, contenuUS:'ETQ Dev, je veux faire des tests sur NodeJS', numeroPriorisation:2}
+               {
+						"numero" : 2, 
+						"theme" : "un theme",
+						"besoin" : "un besoin",
+						"criteres" : "des criteres",
+						"estimation" : 10,
+						"ordre" : 1
+					},
+					{
+						"numero" : 1, 
+						"theme" : "un tgheme",
+						"besoin" : "un jbesoin",
+						"criteres" : "deghjs criteres",
+						"estimation" : 5,
+						"ordre" : 2
+					},
+					{
+						"numero" : 5, 
+						"theme" : "un tgheme",
+						"besoin" : "un jbesoin",
+						"criteres" : "deghjs criteres",
+						"estimation" : 8,
+						"ordre" : 3
+					},
+					{
+						"numero" : 13, 
+						"theme" : "un tgheme",
+						"besoin" : "un jbesoin",
+						"criteres" : "deghjs criteres",
+						"estimation" : 20,
+						"ordre" : 4
+					}
+
                ];
  // Retourne un JSON qui contient les US du Backlog priorisées
 app.get('/backlog', function(req, res) {
@@ -12,11 +43,12 @@ app.get('/backlog', function(req, res) {
 	res.json(arr);
 });
 
+
 // Modifie la priorité d'une US et "décale" la priorisation des autres US si besoin
 app.post('/backlog/:id/position', function(position) {
 	rechercheSiUSExiste(req.params.id);
 	
-	var position = getUS(req.params.id).numeroPriorisation;
+	var position = getUS(req.params.id).ordre;
 	var numeroUsPrecedente = position.avant ;
 	var numeroUsSuivante = position.apres ;
 	
@@ -24,6 +56,7 @@ app.post('/backlog/:id/position', function(position) {
 });
 
 // Affiche une US en particulier
+
 app.get('/backlog/:id', function(req, res) {
 	rechercheSiUSExiste(req.params.id) ;
 	
@@ -39,6 +72,7 @@ app.get('/backlog/:id', function(req, res) {
 
  
 app.listen(3000);
+
 console.log('Listening on port 3000...');
 
 var getUS = function(numUS) {
@@ -46,7 +80,7 @@ var getUS = function(numUS) {
 
 	while (indexDuBacklog < backlog.length) {
 
-		if(backlog[indexDuBacklog].numeroUS ==numUS) {
+		if(backlog[indexDuBacklog].numero ==numUS) {
 
 			var us = backlog[indexDuBacklog];
 			return us;
@@ -59,7 +93,7 @@ var getUS = function(numUS) {
 
 var trierTableauParPriorite = function(tableau){
 		return tableau.sort(function(a,b) {
- 		a.numeroPriorisation > b.numeroPriorisation;
+ 		a.ordre> b.ordre;
  		});
 
 
@@ -71,3 +105,4 @@ var rechercheSiUSExiste = function(id) {
 	    return res.send('Error 404: No story found in backlog');
 	}
 }
+

@@ -24,13 +24,13 @@ describe('Le controlleur de stories', function() {
     
     var ctrl = $controller('StoriesCtrl', {
       '$scope': $scope, 
+	  
       'entrepotStories': entrepot
     });
     
   }));
   
   it('doit démarrer avec une liste récupérée de l\'entrepot', function() {
-	  expect(entrepot.recupererStories).toHaveBeenCalled();
 	  expect($scope.stories).toEqual(STORIES);
   });
   
