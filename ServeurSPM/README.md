@@ -1,6 +1,5 @@
-
 ## Usage
-Lancement serveur
+### Lancement serveur par la console
 node serveur.js
 
 
